@@ -8,7 +8,7 @@ This Python application allows you to draw on a canvas by tracking your hand ges
 - [Usages](#Usage)
 - [Features](#Features)
 - [Implementation Details](#Implementation-Details)
-- [Sample Run](#Sample-Run)
+- [Sample Runs](#Sample-Runs)
 
 ## Motivation
 The purpose of this project is to demonstrate how to use computer vision techniques to create an interactive drawing experience that doesn't require any hardware beyond a standard computer and webcam. This project showcases the capabilities of the MediaPipe Hands library for hand detection and gesture recognition, and demonstrates how to integrate it with OpenCV for real-time visual feedback.
@@ -46,6 +46,6 @@ The application uses the MediaPipe Hands library to detect hand landmarks and re
 
 The drawing canvas itself is implemented using OpenCV, with each stroke added to a separate image that is merged with the live video feed when displayed on screen. Brush size and color selection are also handled using OpenCV functions for drawing shapes and filling regions of an image.
 
-## Sample Run
+## Sample Runs
 ![image](https://drive.google.com/uc?export=view&id=1tAizDqBhuWzbtOjbFd-2ZX6C9yS5jC24)
 ![image](https://drive.google.com/uc?export=view&id=1jQ-l9cw7UGsd7VJDE4347b9G5fBM3iBc)
