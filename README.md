@@ -48,3 +48,4 @@ The drawing canvas itself is implemented using OpenCV, with each stroke added to
 
 ## Sample Run
 ![image](https://drive.google.com/uc?export=view&id=1tAizDqBhuWzbtOjbFd-2ZX6C9yS5jC24)
+![image](https://drive.google.com/uc?export=view&id=1jQ-l9cw7UGsd7VJDE4347b9G5fBM3iBc)
