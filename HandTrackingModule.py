@@ -1,6 +1,5 @@
 import cv2
 import mediapipe as mp
-import time
 
 
 class HandDetector:
@@ -158,7 +157,6 @@ class HandDetector:
         # Thumb
         # right hand
         if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[4]][1]:
-            print("here")
             if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[0] - 1][1]:
                 fingers.append(1)
             else:
@@ -178,41 +176,3 @@ class HandDetector:
                 fingers.append(0)
 
         return fingers
-
-
-def main():
-    prevTime = 0
-    # Initialize the video capture device
-    cap = cv2.VideoCapture(0)
-    # Create an instance of the HandDetector class
-    detector = HandDetector()
-    while True:
-        # Capture a frame from the video feed
-        success, img = cap.read()
-
-        # Call the processImage method to detect the hands in the image
-        detector.processImage(img)
-        # Call the drawLandmarks method to draw landmarks on the image
-        img = detector.drawLandmarks(img)
-        # Call the getLandmarkPositions method to get the positions of the landmarks
-        lmList = detector.getLandmarkPositions(img)
-
-        if len(lmList) != 0:
-            # Print the position of the landmark at index 4
-            print(lmList[4])
-
-        curTime = time.time()
-        fps = 1 / (curTime - prevTime)
-        prevTime = curTime
-
-        # Put the FPS counter on the screen
-        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
-
-        # Show the image on the screen
-        cv2.imshow("Image", img)
-        # Wait for a keyboard event
-        cv2.waitKey(1)
-
-
-if __name__ == "__main__":
-    main()
