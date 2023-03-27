@@ -139,29 +139,31 @@ class HandDetector:
            Returns
            -------
            list
-               A list containing binary values indicating whether each finger is up or not.
+               A list containing binary values indicating whether each finger is up or not starting from the thumb.
 
            Notes
            -----
            The function first initializes an empty list to store the state of each finger. It then checks the position of
            the thumb by comparing the x-coordinate of the topmost landmark of the thumb with the x-coordinate of the landmark
            below it. If the topmost landmark has a lower x-coordinate, the thumb is considered "up" and the value 1 is
-           appended to the fingers list, otherwise 0 is appended -works only for right hand-.
+           appended to the fingers list, otherwise 0 is appended.
 
            Next, the function iterates over the landmarks representing each finger (excluding the thumb) and checks if
            the y-coordinate of the topmost landmark is less than the y-coordinate of the landmark below it. If yes, then
            that finger is considered "up" and the value 1 is appended to the fingers list, else 0 is appended. At the end,
            the function returns the fingers list which contains binary values indicating whether each finger is up or not.
         """
+
         fingers = []
         # Thumb
-        #left hand
-        if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[4]][1] :
+        # right hand
+        if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[4]][1]:
+            print("here")
             if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[0] - 1][1]:
                 fingers.append(1)
             else:
                 fingers.append(0)
-        # right hand
+        # left hand
         else:
             if self.landmarkList[self.tipIds[0]][1] > self.landmarkList[self.tipIds[0] - 1][1]:
                 fingers.append(1)
