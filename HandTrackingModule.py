@@ -155,10 +155,18 @@ class HandDetector:
         """
         fingers = []
         # Thumb
-        if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[0] - 1][1]:
-            fingers.append(1)
+        #left hand
+        if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[4]][1] :
+            if self.landmarkList[self.tipIds[0]][1] < self.landmarkList[self.tipIds[0] - 1][1]:
+                fingers.append(1)
+            else:
+                fingers.append(0)
+        # right hand
         else:
-            fingers.append(0)
+            if self.landmarkList[self.tipIds[0]][1] > self.landmarkList[self.tipIds[0] - 1][1]:
+                fingers.append(1)
+            else:
+                fingers.append(0)
 
         # Fingers
         for id in range(1, 5):
